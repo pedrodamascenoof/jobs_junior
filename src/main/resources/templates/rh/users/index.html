@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Jobs Junior</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container my-2">
+		<a th:href="@{/rh/users/nova}" class="btn btn-primary btn-sm mb-3">Incluir Usuario</a>
+		<h1>Users</h1>
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Senha</th>
+					<th>Email</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="users : ${listaUsers}">
+					<td th:text="${users.nome}"></td>
+					<td th:text="${users.senha}"></td>
+					<td th:text="${users.email}"></td>
+					<td>			
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
