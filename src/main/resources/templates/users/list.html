@@ -17,6 +17,8 @@
 					<td>ID</td>
 					<td>Nome</td>
 					<td>Email</td>
+					<td>Senha</td>
+					<td>Data de cadastro</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -28,6 +30,8 @@
 					<td><a href="view.html" th:href="@{'/users/' + ${users.id}}" 
 					th:text="${users.nome}"> nome </a>
 					<td><a th:text="${users.email}"> email </a></td>
+					<td><a th:text="${users.senha}"> senha </a></td>
+					<td th:text="${#dates.format(users.data,'dd-MM-yyyy')}">data</td>
 				</tr>
 			</tbody>
 		</table>

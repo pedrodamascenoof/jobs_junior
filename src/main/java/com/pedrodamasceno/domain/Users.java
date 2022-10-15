@@ -1,12 +1,16 @@
 package com.pedrodamasceno.domain;
 
 
+
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Users {
@@ -22,13 +26,37 @@ public class Users {
     @NotNull
     @Length(min=2, max=30,message="O tamanho do endereço deve ser entre {min} e {max} caracteres")
 	private String email;
+    
+    @NotNull
+    @Length(min=2, max=30,message="O tamanho da senha deve ser entre {min} e {max} caracteres")
+	private String senha;
 	
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+	private Date data;
 
-	public Users(Long id,String nome,String email) {
+	public Users(Long id,String nome,String email,String senha) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
+		this.senha = senha;
+		this.data = new Date();
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public Users() {}
@@ -60,7 +88,7 @@ public class Users {
 	
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", nome=" + nome + ", email=" + email + "]";
+		return "Users [id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", data=" + data + "]";
 	}
 
 	@Override

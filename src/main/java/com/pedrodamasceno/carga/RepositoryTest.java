@@ -23,9 +23,9 @@ public class RepositoryTest implements ApplicationRunner{
 	@Override
 	 public void run(ApplicationArguments applicationArguments) throws Exception{
 		
-		Users u1 = new Users(ID_USER_PEDRO,"Pedro Leite","pedrodamasceno@email.com");
+		Users u1 = new Users(ID_USER_PEDRO,"Pedro Leite","pedrodamasceno@email.com","3103001458");
 		
-	    Users u2 = new Users(ID_USER_DAVI,"Davi Leite","davidiniz@gmail.com");
+	    Users u2 = new Users(ID_USER_DAVI,"Davi Leite","davidiniz@gmail.com","3113011559");
 		
 		
 		usersRepository.saveAndFlush(u1);
