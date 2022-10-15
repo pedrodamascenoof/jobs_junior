@@ -1,39 +1,40 @@
 package com.pedrodamasceno.carga;
 
-import javax.transaction.Transactional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import com.pedrodamasceno.domain.Users;
 import com.pedrodamasceno.repository.UsersRepository;
 
 @Component
-@Transactional
-public class RepositoryTest implements CommandLineRunner{
+public class RepositoryTest implements ApplicationRunner{
+	
+	private static final long ID_USER_PEDRO = 11l;
+	private static final long ID_USER_DAVI = 22l;
+	
 	
 	@Autowired
 	private UsersRepository usersRepository;
 	
 	@Override
-	public void run(String... Args) throws Exception{
+	 public void run(ApplicationArguments applicationArguments) throws Exception{
 		
-		Users u1 = new Users("Pedro Damasceno");
-		u1.setNome("Pedro Damasceno");
-		u1.setEmail("pedrodamasceno@email.com");
-		u1.setSenha("310300");
+		Users u1 = new Users(ID_USER_PEDRO,"Pedro Leite","pedrodamasceno@email.com");
 		
-		Users u2 = new Users("Davi Diniz");
-		u2.setNome("Davi Diniz");
-		u2.setEmail("davidiniz@email.com");
-		u2.setSenha("1458300");
+	    Users u2 = new Users(ID_USER_DAVI,"Davi Leite","davidiniz@gmail.com");
 		
-		usersRepository.save(u1);
-		usersRepository.save(u2);
+		
+		usersRepository.saveAndFlush(u1);
+		usersRepository.saveAndFlush(u2);
 	
-		
+		System.out.println(">>> Gravado usuario 1: "+u1);
+		System.out.println(">>> Gravado usuario 2: "+u2);
 	}
 	
 	
 }
+

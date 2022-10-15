@@ -1,4 +1,4 @@
-package com.pedrodamasceno.jobsjunior;
+package com.pedrodamasceno;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
