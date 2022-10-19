@@ -17,8 +17,10 @@ public class RepositoryTest implements ApplicationRunner{
 	private static final long ID_USER_DAVI = 22l;
 	
 	
+	
 	@Autowired
 	private UsersRepository usersRepository;
+	
 	
 	@Override
 	 public void run(ApplicationArguments applicationArguments) throws Exception{
@@ -26,13 +28,15 @@ public class RepositoryTest implements ApplicationRunner{
 		Users u1 = new Users(ID_USER_PEDRO,"Pedro Leite","pedrodamasceno@email.com","3103001458");
 		
 	    Users u2 = new Users(ID_USER_DAVI,"Davi Leite","davidiniz@gmail.com","3113011559");
-		
+	    
 		
 		usersRepository.saveAndFlush(u1);
 		usersRepository.saveAndFlush(u2);
+		
 	
 		System.out.println(">>> Gravado usuario 1: "+u1);
 		System.out.println(">>> Gravado usuario 2: "+u2);
+
 	}
 	
 	

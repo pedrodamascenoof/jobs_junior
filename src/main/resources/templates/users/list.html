@@ -19,6 +19,8 @@
 					<td>Email</td>
 					<td>Senha</td>
 					<td>Data de cadastro</td>
+					<td>Data de atualização</td>
+					
 				</tr>
 			</thead>
 			<tbody>
@@ -32,6 +34,7 @@
 					<td><a th:text="${users.email}"> email </a></td>
 					<td><a th:text="${users.senha}"> senha </a></td>
 					<td th:text="${#dates.format(users.data,'dd-MM-yyyy')}">data</td>
+					<td th:text="${#dates.format(users.data2,'dd-MM-yyyy')}">data</td>
 				</tr>
 			</tbody>
 		</table>

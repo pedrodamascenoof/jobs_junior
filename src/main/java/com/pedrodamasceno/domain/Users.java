@@ -33,6 +33,9 @@ public class Users {
 	
     @DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date data;
+    
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+   	private Date data2;
 
 	public Users(Long id,String nome,String email,String senha) {
 		super();
@@ -41,6 +44,15 @@ public class Users {
 		this.email = email;
 		this.senha = senha;
 		this.data = new Date();
+		this.data2 = new Date();
+	}
+
+	public Date getData2() {
+		return data2;
+	}
+
+	public void setData2(Date data2) {
+		this.data2 = data2;
 	}
 
 	public Date getData() {
@@ -88,7 +100,8 @@ public class Users {
 	
 	@Override
 	public String toString() {
-		return "Users [id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", data=" + data + "]";
+		return "Users [id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", data=" + data
+				+ ", data2=" + data2 + "]";
 	}
 
 	@Override
@@ -115,5 +128,6 @@ public class Users {
 			return false;
 		return true;
 	}
+
 
 }	

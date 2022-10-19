@@ -13,6 +13,15 @@
     });
   } );
   </script>
+  <script>
+  $( function() {
+    $( "#data2" ).datepicker({
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'dd-mm-yy' 
+    });
+  } );
+  </script>
 </head>
 <body>
 	<h1 layout:fragment="header">Cadastro de usuario</h1>
@@ -39,8 +48,12 @@
 			 <input class="col-sm-10" type="text" th:field="*{senha}" th:class="${#fields.hasErrors('senha')} ? 'field-error'"/>
 			</div>
 			<div class="form-group">  
-			 <label class="control-label col-sm-2" for="text">Data</label>
+			 <label class="control-label col-sm-2" for="text">Data de cadastro</label>
 			 <input class="col-sm-10" type="text" id="data" th:field="*{data}" th:class="${#fields.hasErrors('data')} ? 'field-error'"/>
+			</div>
+			<div class="form-group">  
+			 <label class="control-label col-sm-2" for="text">Data de atualização</label>
+			 <input class="col-sm-10" type="text" id="data2" th:field="*{data2}" th:class="${#fields.hasErrors('data2')} ? 'field-error'"/>
 			</div>
 			<div class="col-sm-offset-2 col-sm-10">
 				<input type="submit" value="Gravar" />
