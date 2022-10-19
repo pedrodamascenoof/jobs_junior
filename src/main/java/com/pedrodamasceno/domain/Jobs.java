@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
@@ -24,8 +23,6 @@ public class Jobs {
 	@Length(min=2, max=30,message="O tamanho do link deve ser entre {min} e {max} caracteres")
 	private	String job;
 	
-	@ManyToOne(optional	= true)
-	private	Users users;
 	
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date data;
@@ -39,7 +36,6 @@ public class Jobs {
 		super();
 		this.id = id;
 		this.job = job;
-		this.users = users;
 		this.data = new Date();
 		this.data2 = new Date();
 	}
@@ -60,13 +56,6 @@ public class Jobs {
 		this.job = job;
 	}
 
-	public Users getUsers() {
-		return users;
-	}
-
-	public void setUsers(Users users) {
-		this.users = users;
-	}
 
 	public Date getData() {
 		return data;
@@ -103,7 +92,7 @@ public class Jobs {
 
 	@Override
 	public String toString() {
-		return "Jobs [id=" + id + ", job=" + job + ", users=" + users + ", data=" + data + ", data2=" + data2 + "]";
+		return "Jobs [id=" + id + ", job=" + job + ", data=" + data + ", data2=" + data2 + "]";
 	}
 	
 

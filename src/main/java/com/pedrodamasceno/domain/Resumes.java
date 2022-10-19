@@ -1,7 +1,6 @@
 package com.pedrodamasceno.domain;
 
 
-
 import java.util.Date;
 import java.util.Objects;
 
@@ -9,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
@@ -25,8 +23,6 @@ public class Resumes {
     @Length(min=2, max=30,message="O tamanho do link deve ser entre {min} e {max} caracteres")
 	private String resume;
 	
-	@ManyToOne(optional	= true)
-	private	Users users;
 	
 	 @DateTimeFormat(pattern = "dd-MM-yyyy")
 	 private Date data;
@@ -40,7 +36,6 @@ public class Resumes {
 		super();
 		this.id = id;
 		this.resume = resume;
-		this.users = users;
 		this.data = new Date();
 		this.data2 = new Date();
 	}
@@ -62,13 +57,6 @@ public class Resumes {
 		this.resume = resume;
 	}
 
-	public Users getUsers() {
-		return users;
-	}
-
-	public void setUsers(Users users) {
-		this.users = users;
-	}
 
 	public Date getData() {
 		return data;
@@ -106,7 +94,7 @@ public class Resumes {
 
 	@Override
 	public String toString() {
-		return "Resumes [id=" + id + ", resume=" + resume + ", users=" + users + ", data=" + data + ", data2=" + data2
+		return "Resumes [id=" + id + ", resume=" + resume + ", data=" + data + ", data2=" + data2
 				+ "]";
 	}
 	

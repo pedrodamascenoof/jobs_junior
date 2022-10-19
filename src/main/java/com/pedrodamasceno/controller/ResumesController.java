@@ -1,5 +1,6 @@
 package com.pedrodamasceno.controller;
 
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.pedrodamasceno.domain.Resumes;
 import com.pedrodamasceno.repository.ResumesRepository;
+import com.pedrodamasceno.repository.UsersRepository;
 
 
 @Controller
@@ -22,7 +24,7 @@ public class ResumesController {
 	private final ResumesRepository resumesRepository;
 	private final String RESUMES_URI = "resumes/";
 
-	public ResumesController(ResumesRepository resumesRepository) {
+	public ResumesController(ResumesRepository resumesRepository,UsersRepository usersRepository) {
 		this.resumesRepository = resumesRepository;
 	}
 
@@ -46,10 +48,11 @@ public class ResumesController {
 	public ModelAndView create(@Valid Resumes resumes,BindingResult result,RedirectAttributes redirect) {
 		if (result.hasErrors()) { return new ModelAndView(RESUMES_URI + "form","formErrors",result.getAllErrors()); }
 		resumes = this.resumesRepository.save(resumes);
-		redirect.addFlashAttribute("globalMessage","Curriculo gravado com sucesso");
+		redirect.addFlashAttribute("globalMessage","Item gravado com sucesso");
 		return new ModelAndView("redirect:/" + RESUMES_URI + "{resumes.id}","resumes.id",resumes.getId());
-	}
 
+	}
+	
 	@GetMapping(value = "remover/{id}")
 	public ModelAndView remover(@PathVariable("id") Long id,RedirectAttributes redirect) {
 		this.resumesRepository.deleteById(id);

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout"> 
+<head>
+<title>Vagas</title>
+</head>
+<body>
+	<h1 layout:fragment="header">Lista de vagas</h1>
+	<div layout:fragment="content" class="container">
+			<a href="form.html" th:href="@{/resumes/novo}">Nova vaga</a>
+		<div class="alert alert-success" th:if="${globalMessage}"
+			th:text="${globalMessage}">mensagem</div>			
+		<table class="table table-bordered table-striped">
+			<thead> 
+				<tr>
+					<td>ID</td>
+					<td>Vaga</td>
+					<td>Data de cadastro</td>
+					<td>Data de atualização</td>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${resumes.empty}">
+					<td colspan="3">Sem vagas</td>
+				</tr>
+				<tr th:each="resumes : ${resumes}">
+					<td th:text="${resumes.id}">1</td>
+					<td><a href="view.html" th:href="@{'/resumes/' + ${resumes.id}}" 
+					th:text="${resumes.resume}"> resume </a>
+					<td th:text="${#dates.format(resumes.data,'dd-MM-yyyy')}">data</td>
+					<td th:text="${#dates.format(resumes.data2,'dd-MM-yyyy')}">data</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
