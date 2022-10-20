@@ -31,7 +31,6 @@ DROP TABLE IF EXISTS `jobs`;
 CREATE TABLE `jobs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `job` text,
-  `users_id` int(11) DEFAULT NULL,
   `data` text,
   `data2` text,
 

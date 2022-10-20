@@ -1,0 +1,37 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout">
+<head>
+ <title>Vagas</title>
+</head>
+<body>
+	<h1 layout:fragment="header">Vagas</h1>
+	<div layout:fragment="content" class="well">
+		<div class="alert alert-success" th:if="${globalMessage}"
+			th:text="${globalMessage}">Vaga gravada com sucesso</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Vaga</th>
+					<th>Data de cadastro</th>
+					<th>Data de atualização</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td id="id" th:text="${jobs.id}">123</td>
+					<td id="job" th:text="${jobs.job}">Job...</td>
+					<td id="data" th:text="${jobs.data}">Data...</td>
+					<td id="data2" th:text="${jobs.data2}">Data...</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="pull-left">
+			<a href="form.html" th:href="@{'/jobs/alterar/' + ${jobs.id}}">alterar</a>
+			| <a href="jobs" th:href="@{'/jobs/remover/' + ${jobs.id}}">remover</a>
+		    | <a th:href="@{/jobs/}" href="list.html">voltar</a>
+		</div>
+	</div>
+</body>
+</html>
