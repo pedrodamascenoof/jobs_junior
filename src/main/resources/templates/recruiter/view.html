@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout">
+<head>
+ <title>Recruiter</title>
+</head>
+<body>
+	<h1 layout:fragment="header">Recrutador</h1>
+	<div layout:fragment="content" class="well">
+		<div class="alert alert-success" th:if="${globalMessage}"
+			th:text="${globalMessage}">Recrutador gravado com sucesso</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>Email</th>
+					<th>Senha</th>
+					<th>Data de cadastro</th>
+					<th>Data de atualização</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td id="id" th:text="${recruiter.id}">123</td>
+					<td id="nome" th:text="${recruiter.nome}">Nome...</td>
+					<td id="email" th:text="${recruiter.email}">Email...</td>
+					<td id="senha" th:text="${recruiter.senha}">Senha...</td>
+					<td id="data" th:text="${recruiter.data}">Data...</td>
+					<td id="data" th:text="${recruiter.data2}">Data...</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="pull-left">
+			<a href="form.html" th:href="@{'/recruiter/alterar/' + ${recruiter.id}}">alterar</a>
+			| <a href="recruiter" th:href="@{'/recruiter/remover/' + ${recruiter.id}}">remover</a>
+		    | <a th:href="@{/recruiter/}" href="list.html">voltar</a>
+		</div>
+	</div>
+</body>
+</html>

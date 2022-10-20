@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout"> 
+<head>
+<title>Recrutadores</title>
+</head>
+<body>
+	<h1 layout:fragment="header">Lista de recrutadores</h1>
+	<div layout:fragment="content" class="container">
+			<a href="form.html" th:href="@{/recruiter/novo}">Novo recrutador</a>
+		<div class="alert alert-success" th:if="${globalMessage}"
+			th:text="${globalMessage}">mensagem</div>			
+		<table class="table table-bordered table-striped">
+			<thead> 
+				<tr>
+					<td>ID</td>
+					<td>Nome</td>
+					<td>Email</td>
+					<td>Senha</td>
+					<td>Data de cadastro</td>
+					<td>Data de atualização</td>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${recruiter.empty}">
+					<td colspan="3">Sem recrutadores</td>
+				</tr>
+				<tr th:each="recruiter : ${recruiter}">
+					<td th:text="${recruiter.id}">1</td>
+					<td><a href="view.html" th:href="@{'/recruiter/' + ${recruiter.id}}" 
+					th:text="${recruiter.nome}"> nome </a>
+					<td><a th:text="${recruiter.email}"> email </a></td>
+					<td><a th:text="${recruiter.senha}"> senha </a></td>
+					<td th:text="${#dates.format(recruiter.data,'dd-MM-yyyy')}">data</td>
+					<td th:text="${#dates.format(recruiter.data2,'dd-MM-yyyy')}">data</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

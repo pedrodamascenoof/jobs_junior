@@ -13,6 +13,17 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `recruiters`;
+
+CREATE TABLE `recruiters` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` text,
+  `email` text,
+  `data` text,
+  `data2` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
 
 DROP TABLE IF EXISTS `resumes`;
 
